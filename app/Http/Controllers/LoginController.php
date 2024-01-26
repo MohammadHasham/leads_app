@@ -19,12 +19,12 @@ class LoginController extends Controller
     {
         try {
             $user = Socialite::driver('google')->user();
-            $finduser = User::where('email', $user->id)->first();
+            $finduser = User::where('email', $user->email)->first();
 
             if ($finduser)
             {
                 Auth::login($finduser);
-                return redirect()->intended('dashboard');
+                return redirect()->intended('leads');
             }
 
             else
@@ -37,7 +37,7 @@ class LoginController extends Controller
                 ]);
 
             Auth::login($newUser);
-            return redirect()->intended ('dashboard');
+            return redirect()->intended ('leads');
             }
 
         } 
