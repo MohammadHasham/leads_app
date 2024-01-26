@@ -33,4 +33,4 @@ route::get('auth/google',[LoginController::class,'googlepage']);
 
 route::get('auth/google/callback',[LoginController::class,'googlecallback']);
 
-Route::get('/leads',[LeadController::class,'show']);
+Route::get('/leads',[LeadController::class,'index'])->name('leads.index');
