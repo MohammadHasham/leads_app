@@ -7,27 +7,49 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                <div class="container">
+            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg flex">
+                <div class="w-1/4 p-4 bg-dark">
 
                     <form action="{{ route('leads.index') }}" method="GET">
-                        <input type="text" name="name" placeholder="Search by Name">
-                        <button type="submit">Search</button>
+                        <label for="name" class="block text-md font-large text-white">Search by Name:</label>
+                        <input type="text" id="name" name="name" placeholder="Search by Name" class="form-input">
+                        <button type="submit" class="btn btn-primary mt-1">Search</button>
                     </form>
 
                     <form action="{{ route('leads.index') }}" method="GET">
-                        <input type="text" name="company_name" placeholder="Search by Company Name">
-                        <button type="submit">Search</button>
+                        <label for="name" class="block text-md font-large text-white">Search by Company Name:</label>
+                        <input type="text" id="company_name" name="company_name" placeholder="Search by Company Name" class="form-input">
+                        <button type="submit" class="btn btn-primary mt-1">Search</button>
                     </form>
 
                     <form action="{{ route('leads.index') }}" method="GET">
-                        <input type="text" name="title" placeholder="Search by Job Title">
-                        <button type="submit">Search</button>
+                        <label for="name" class="block text-md font-large text-white">Search by Job Title:</label>
+                        <input type="text" id="title" name="title" placeholder="Search by Job Title" class="form-input">
+                        <button type="submit" class="btn btn-primary mt-1">Search</button>
                     </form>
 
                     <form action="{{ route('leads.index') }}" method="GET">
-                        <h3>
-                        <select name="industry_domain">
+                        <label for="name" class="block text-md font-large text-white">Search by Country:</label>
+                        <input type="text" id="country" name="country" placeholder="Search by Country" class="form-input">
+                        <button type="submit" class="btn btn-primary mt-1">Search</button>
+                    </form>
+
+                    <form action="{{ route('leads.index') }}" method="GET">
+                        <label for="name" class="block text-md font-large text-white">Search by State:</label>
+                        <input type="text" id="state" name="state" placeholder="Search by State" class="form-input">
+                        <button type="submit" class="btn btn-primary mt-1">Search</button>
+                    </form>
+
+                    <form action="{{ route('leads.index') }}" method="GET">
+                        <label for="name" class="block text-md font-large text-white">Search by City:</label>
+                        <input type="text" id="city" name="city" placeholder="Search by City" class="form-input">
+                        <button type="submit" class="btn btn-primary mt-1">Search</button>
+                    </form>
+
+                    <form action="{{ route('leads.index') }}" method="GET">
+                        <label for="name" class="block text-md font-large text-white">Search by Industry Name:</label>
+                        <select id="industry_domain" name="industry_domain" class="form-select">
+                        
                             <option selected>Search by Industry Name</option>
                             <option value="Accounting">Accounting</option>
                             <option value="Airlines/aviation">Airlines/aviation</option>
@@ -125,53 +147,67 @@
                             <option value="Utilities">Utilities</option>
                             <option value="Wholesale">Wholesale</option>
                         </select>
-                        <button type="submit">Search</button>
+                        <button type="submit" class="btn btn-primary mt-1">Search</button>
                     </form>
                 </div>
-                
-                <div class="container">
-                    <h1>Leads</h1>
+                <div class="w-3/4 p-4">
+                    <div class="container">
 
-                    <div class="card border-0 shadow-lg">
-                        <div class="card-body">
-                            <table class="table table-Striped">
-                                    <tr>
-                                        <th>Name</th>
-                                        <th>Company Name</th>
-                                        <th>Title</th>
-                                        <th>Industry Domain</th>
-                                        <th>Country</th>
-                                        <th>State</th>
-                                        <th>City</th>
-                                        <th>Email</th>
-                                        <th>Mobile No</th>
-                                        <th>Person LinkedIn</th>
-                                        <th>Domain LinkedIn</th>
-                                    </tr>
+                        
 
-                                    @foreach($filteredLeads as $lead)
-                                        <tr>
-                                            <td>{{ $lead['name']}}</td>
-                                            <td>{{ $lead['company_name']}}</td>
-                                            <td>{{ $lead['title']}}</td>
-                                            <td>{{ $lead['industry_domain']}}</td>
-                                            <td>{{ $lead['country']}}</td>
-                                            <td>{{ $lead['state']}}</td>
-                                            <td>{{ $lead['city']}}</td>
-                                            <td>{{ $lead['email']}}</td>
-                                            <td>{{ $lead['mobile_no']}}</td>
-                                            <td>{{ $lead['person_linkedin']}}</td>
-                                            <td>{{ $lead['domain_linkedin']}}</td>
-                                        
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
+                        <div class="card border-0 shadow-lg">
+                                    <div class="card-body">
+                                        <div style="overflow-x: auto;">
+                                            <table style="max-width: 100%;" class="table table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Name</th>
+                                                        <th style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Company Name</th>
+                                                        <th style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Title</th>
+                                                        <th style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Industry Domain</th>
+                                                        <th style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Country</th>
+                                                        <th style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">State</th>
+                                                        <th style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">City</th>
+                                                        <th style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Email</th>
+                                                        <th style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Mobile No</th>
+                                                        <th style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Person LinkedIn</th>
+                                                        <th style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Domain LinkedIn</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @if($filteredLeads->isNotEmpty())
+                                                    @foreach($filteredLeads as $lead)
+                                                        <tr>
+                                                            <td style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ $lead['name']}}</td>
+                                                            <td style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ $lead['company_name']}}</td>
+                                                            <td style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ $lead['title']}}</td>
+                                                            <td style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ $lead['industry_domain']}}</td>
+                                                            <td style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ $lead['country']}}</td>
+                                                            <td style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ $lead['state']}}</td>
+                                                            <td style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ $lead['city']}}</td>
+                                                            <td style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ $lead['email']}}</td>
+                                                            <td style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ $lead['mobile_no']}}</td>
+                                                            <td style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ $lead['person_linkedin']}}</td>
+                                                            <td style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{ $lead['domain_linkedin']}}</td>
+                                                        </tr>
+                                                    @endforeach
+                                                    @else
+                                                    <tr>
+                                                        <td colspan="6">No Record Found</td>
+                                                    </tr>
+                                                    @endif
+                                                </tbody>
+                                            </table>
+                                            <div class="justify-content-center mt-4">
+                                                {{ $filteredLeads->links() }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                
+                            </div>
                         </div>
                     </div>
                 </div>
-
-
             </div>
         </div>
     </div>

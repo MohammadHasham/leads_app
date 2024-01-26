@@ -17,14 +17,31 @@ class LeadController extends Controller
             $query->where('name', 'like', '%' . $request->input('name') . '%');
         }
 
+        // Check if company name search is set
         if ($request->filled('company_name')) {
             $query->where('company_name', 'like', '%' . $request->input('company_name') . '%');
         }
 
+        // Check if title search is set
         if ($request->filled('title')) {
             $query->where('title', 'like', '%' . $request->input('title') . '%');
         }
-    
+
+        // Check if country filter is set
+        if ($request->filled('country')) {
+            $query->where('country', $request->input('country'));
+        }
+            
+        // Check if state filter is set
+        if ($request->filled('state')) {
+            $query->where('state', $request->input('state'));
+        }
+        
+        // Check if city filter is set
+        if ($request->filled('city')) {
+            $query->where('city', $request->input('city'));
+        }
+
         // Check if industry_domain filter is set
         if ($request->filled('industry_domain')) {
             $query->when($request->filled('name'), function ($query) use ($request) {
@@ -36,7 +53,7 @@ class LeadController extends Controller
             });
         }
     
-        $filteredLeads = $query->get();
+        $filteredLeads = $query->paginate(10);
     
         return view('leads.index', compact('filteredLeads'));
     }
