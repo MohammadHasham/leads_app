@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
+            Ecommerce Leads
         </h2>
     </x-slot>
 
@@ -13,37 +13,37 @@
                     <form action="{{ route('leads.index') }}" method="GET">
                         <label for="name" class="block text-md font-large text-white">Search by Name:</label>
                         <input type="text" id="name" name="name" placeholder="Search by Name" class="form-input">
-                        <button type="submit" class="btn btn-primary mt-1">Search</button>
+                        <button type="submit" class="btn btn-primary btn-sm mt-1">Search</button>
                     </form>
 
                     <form action="{{ route('leads.index') }}" method="GET">
                         <label for="name" class="block text-md font-large text-white">Search by Company Name:</label>
                         <input type="text" id="company_name" name="company_name" placeholder="Search by Company Name" class="form-input">
-                        <button type="submit" class="btn btn-primary mt-1">Search</button>
+                        <button type="submit" class="btn btn-primary btn-sm mt-1">Search</button>
                     </form>
 
                     <form action="{{ route('leads.index') }}" method="GET">
                         <label for="name" class="block text-md font-large text-white">Search by Job Title:</label>
                         <input type="text" id="title" name="title" placeholder="Search by Job Title" class="form-input">
-                        <button type="submit" class="btn btn-primary mt-1">Search</button>
+                        <button type="submit" class="btn btn-primary btn-sm mt-1">Search</button>
                     </form>
 
                     <form action="{{ route('leads.index') }}" method="GET">
                         <label for="name" class="block text-md font-large text-white">Search by Country:</label>
                         <input type="text" id="country" name="country" placeholder="Search by Country" class="form-input">
-                        <button type="submit" class="btn btn-primary mt-1">Search</button>
+                        <button type="submit" class="btn btn-primary btn-sm mt-1">Search</button>
                     </form>
 
                     <form action="{{ route('leads.index') }}" method="GET">
                         <label for="name" class="block text-md font-large text-white">Search by State:</label>
                         <input type="text" id="state" name="state" placeholder="Search by State" class="form-input">
-                        <button type="submit" class="btn btn-primary mt-1">Search</button>
+                        <button type="submit" class="btn btn-primary btn-sm mt-1">Search</button>
                     </form>
 
                     <form action="{{ route('leads.index') }}" method="GET">
                         <label for="name" class="block text-md font-large text-white">Search by City:</label>
                         <input type="text" id="city" name="city" placeholder="Search by City" class="form-input">
-                        <button type="submit" class="btn btn-primary mt-1">Search</button>
+                        <button type="submit" class="btn btn-primary btn-sm mt-1">Search</button>
                     </form>
 
                     <form action="{{ route('leads.index') }}" method="GET">
@@ -147,7 +147,7 @@
                             <option value="Utilities">Utilities</option>
                             <option value="Wholesale">Wholesale</option>
                         </select>
-                        <button type="submit" class="btn btn-primary mt-1">Search</button>
+                        <button type="submit" class="btn btn-primary btn-sm mt-1">Search</button>
                     </form>
                 </div>
                 <div class="w-3/4 p-4">
