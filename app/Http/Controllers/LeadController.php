@@ -44,16 +44,10 @@ class LeadController extends Controller
 
         // Check if industry_domain filter is set
         if ($request->filled('industry_domain')) {
-            $query->when($request->filled('name'), function ($query) use ($request) {
-                // If name search is also set, apply 'and' condition with industry_domain filter
-                $query->where('industry_domain', $request->input('industry_domain'));
-            }, function ($query) use ($request) {
-                // If only industry_domain filter is set, apply 'or' condition
-                $query->orWhere('industry_domain', $request->input('industry_domain'));
-            });
+            $query->where('industry_domain', $request->input('industry_domain'));
         }
     
-        $filteredLeads = $query->paginate(10);
+        $filteredLeads = $query->paginate(10)->withQueryString();
     
         return view('leads.index', compact('filteredLeads'));
     }
