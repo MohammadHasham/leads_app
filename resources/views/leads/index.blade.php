@@ -12,45 +12,45 @@
 
                     <form action="{{ route('leads.index') }}" method="GET">
                         <label for="name" class="block text-md font-large text-white">Search by Name:</label>
-                        <input type="text" id="name" name="name" placeholder="Search by Name" class="form-input">
+                        <input type="text" id="name" name="name" placeholder="Search by Name" class="form-input" value="{{ request('name') }}">
                         <button type="submit" class="btn btn-primary btn-sm mt-1">Search</button>
                     </form>
 
                     <form action="{{ route('leads.index') }}" method="GET">
                         <label for="name" class="block text-md font-large text-white">Search by Company Name:</label>
-                        <input type="text" id="company_name" name="company_name" placeholder="Search by Company Name" class="form-input">
+                        <input type="text" id="company_name" name="company_name" placeholder="Search by Company Name" class="form-input" value="{{ request('company_name') }}">
                         <button type="submit" class="btn btn-primary btn-sm mt-1">Search</button>
                     </form>
 
                     <form action="{{ route('leads.index') }}" method="GET">
                         <label for="name" class="block text-md font-large text-white">Search by Job Title:</label>
-                        <input type="text" id="title" name="title" placeholder="Search by Job Title" class="form-input">
+                        <input type="text" id="title" name="title" placeholder="Search by Job Title" class="form-input" value="{{ request('title') }}">
                         <button type="submit" class="btn btn-primary btn-sm mt-1">Search</button>
                     </form>
 
                     <form action="{{ route('leads.index') }}" method="GET">
                         <label for="name" class="block text-md font-large text-white">Search by Country:</label>
-                        <input type="text" id="country" name="country" placeholder="Search by Country" class="form-input">
+                        <input type="text" id="country" name="country" placeholder="Search by Country" class="form-input" value="{{ request('country') }}">
                         <button type="submit" class="btn btn-primary btn-sm mt-1">Search</button>
                     </form>
 
                     <form action="{{ route('leads.index') }}" method="GET">
                         <label for="name" class="block text-md font-large text-white">Search by State:</label>
-                        <input type="text" id="state" name="state" placeholder="Search by State" class="form-input">
+                        <input type="text" id="state" name="state" placeholder="Search by State" class="form-input" value="{{ request('state') }}">
                         <button type="submit" class="btn btn-primary btn-sm mt-1">Search</button>
                     </form>
 
                     <form action="{{ route('leads.index') }}" method="GET">
                         <label for="name" class="block text-md font-large text-white">Search by City:</label>
-                        <input type="text" id="city" name="city" placeholder="Search by City" class="form-input">
+                        <input type="text" id="city" name="city" placeholder="Search by City" class="form-input" value="{{ request('city') }}">
                         <button type="submit" class="btn btn-primary btn-sm mt-1">Search</button>
                     </form>
 
                     <form action="{{ route('leads.index') }}" method="GET">
                         <label for="name" class="block text-md font-large text-white">Search by Industry Name:</label>
-                        <select id="industry_domain" name="industry_domain" class="form-select">
+                        <select id="industry_domain" name="industry_domain" class="form-select" value="{{ request('industry_domain') }}">
                         
-                            <option selected>Search by Industry Name</option>
+                            <option selected >{{ request('industry_domain') }}</option>
                             <option value="Accounting">Accounting</option>
                             <option value="Airlines/aviation">Airlines/aviation</option>
                             <option value="Apparel & fashion">Apparel & fashion</option>
@@ -148,6 +148,7 @@
                             <option value="Wholesale">Wholesale</option>
                         </select>
                         <button type="submit" class="btn btn-primary btn-sm mt-1">Search</button>
+                        <a href="{{ route('leads.index') }}" class="btn btn-secondary btn-sm mt-1">Reset</a>
                     </form>
                 </div>
                 <div class="w-3/4 p-4">
