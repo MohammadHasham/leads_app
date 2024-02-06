@@ -11,42 +11,26 @@
                 <div class="w-1/4 p-4 bg-dark">
 
                     <form action="{{ route('leads.index') }}" method="GET">
+
                         <label for="name" class="block text-md font-large text-white">Search by Name:</label>
                         <input type="text" id="name" name="name" placeholder="Search by Name" class="form-input" value="{{ request('name') }}">
-                        <button type="submit" class="btn btn-primary btn-sm mt-1">Search</button>
-                    </form>
 
-                    <form action="{{ route('leads.index') }}" method="GET">
-                        <label for="name" class="block text-md font-large text-white">Search by Company Name:</label>
+                        <label for="company_name" class="block text-md font-large text-white">Search by Company Name:</label>
                         <input type="text" id="company_name" name="company_name" placeholder="Search by Company Name" class="form-input" value="{{ request('company_name') }}">
-                        <button type="submit" class="btn btn-primary btn-sm mt-1">Search</button>
-                    </form>
 
-                    <form action="{{ route('leads.index') }}" method="GET">
-                        <label for="name" class="block text-md font-large text-white">Search by Job Title:</label>
+                        <label for="title" class="block text-md font-large text-white">Search by Job Title:</label>
                         <input type="text" id="title" name="title" placeholder="Search by Job Title" class="form-input" value="{{ request('title') }}">
-                        <button type="submit" class="btn btn-primary btn-sm mt-1">Search</button>
-                    </form>
 
-                    <form action="{{ route('leads.index') }}" method="GET">
-                        <label for="name" class="block text-md font-large text-white">Search by Country:</label>
+                        <label for="country" class="block text-md font-large text-white">Search by Country:</label>
                         <input type="text" id="country" name="country" placeholder="Search by Country" class="form-input" value="{{ request('country') }}">
-                        <button type="submit" class="btn btn-primary btn-sm mt-1">Search</button>
-                    </form>
 
-                    <form action="{{ route('leads.index') }}" method="GET">
-                        <label for="name" class="block text-md font-large text-white">Search by State:</label>
+                        <label for="state" class="block text-md font-large text-white">Search by State:</label>
                         <input type="text" id="state" name="state" placeholder="Search by State" class="form-input" value="{{ request('state') }}">
-                        <button type="submit" class="btn btn-primary btn-sm mt-1">Search</button>
-                    </form>
 
-                    <form action="{{ route('leads.index') }}" method="GET">
-                        <label for="name" class="block text-md font-large text-white">Search by City:</label>
+                        <label for="city" class="block text-md font-large text-white">Search by City:</label>
                         <input type="text" id="city" name="city" placeholder="Search by City" class="form-input" value="{{ request('city') }}">
-                        <button type="submit" class="btn btn-primary btn-sm mt-1">Search</button>
-                    </form>
 
-                    <form action="{{ route('leads.index') }}" method="GET">
+
                         <label for="name" class="block text-md font-large text-white">Search by Industry Name:</label>
                         <select id="industry_domain" name="industry_domain" class="form-select" value="{{ request('industry_domain') }}">
                         
