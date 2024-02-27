@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Lead;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 
 class LeadController extends Controller
@@ -66,11 +68,23 @@ class LeadController extends Controller
 
         // Check if industry_domain filter is set
         if ($request->filled('industry_domain')) {
-            $query->whereIn('industry_domain', $request->input('industry_domain'));
+            $industryDomains = explode(',', $request->input('industry_domain'));
+            $query->whereIn('industry_domain', $industryDomains);
         }
     
         $filteredLeads = $query->paginate(10)->withQueryString();
-    
-        return view('leads.index', compact('filteredLeads'));
+
+        $userCredits = Auth::user()->credits;
+
+        return view('leads.index', compact('filteredLeads', 'userCredits'));
+        
     }
+
+    public function insufficientCredits()
+    
+    {
+        $userCredits = Auth::user()->credits;
+        return view('insufficient_credits', compact('userCredits'));
+    }
+
 }

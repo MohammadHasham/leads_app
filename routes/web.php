@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LeadController;
+use App\Http\Controllers\PurchaseController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,4 +34,11 @@ route::get('auth/google',[LoginController::class,'googlepage']);
 
 route::get('auth/google/callback',[LoginController::class,'googlecallback']);
 
-Route::get('/leads',[LeadController::class,'index'])->name('leads.index');
+
+Route::middleware(['deductCredit'])->group(function () {
+    Route::get('/leads', [LeadController::class, 'index'])->name('leads.index');
+});
+
+Route::get('/insufficient-credits', [LeadController::class, 'insufficientCredits'])->name('insufficient.credits');
+
+Route::get('/purchase-credits', [PurchaseController::class, 'purchaseCredits'])->name('purchase.credits');

@@ -5,8 +5,24 @@
         </h2>
     </x-slot>
 
+    <div id="insufficient-credits-popup" class="modal" style="display: none;">
+        <div class="modal-content">
+            <p>Not enough credits. Please buy more credits.</p>
+            <button onclick="closePopup()">Close</button>
+            <a href="{{ route('purchase.credits') }}" class="btn btn-primary">Buy Credits</a>
+        </div>
+    </div>
+
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div class="container">
+            <!-- Display user's credit balance -->
+            <div class="text-right mb-3">
+                <p>Your current credit balance: {{ $userCredits}}</p>
+            </div>
+
+            <!-- Your existing HTML content -->
+        </div>
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg flex">
                 <div class="w-1/4 p-4 bg-dark">
 
@@ -196,4 +212,12 @@
             </div>
         </div>
     </div>
-</x-app-layout> 
+</x-app-layout>
+<script>
+    // JavaScript function to show the popup when the page is loaded
+    window.onload = function() {
+        if ({ $userCredits } === 0) {
+            showInsufficientCreditsPopup();
+        }
+    }
+</script>

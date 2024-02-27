@@ -33,7 +33,8 @@ class LoginController extends Controller
                     'name' => $user->name,
                     'email' => $user->email,
                     'gogle_id'=> $user->id,
-                    'password' =>encrypt('123456dummy')
+                    'password' =>encrypt('123456dummy'),
+                    'credits' => 5,
                 ]);
 
             Auth::login($newUser);
